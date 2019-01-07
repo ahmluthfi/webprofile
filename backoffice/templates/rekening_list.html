@@ -1,0 +1,155 @@
+{% extends 'base.html' %}	
+
+{% block content %}
+	<div class="main-panel">
+        <div class="content-wrapper">
+          
+          <div class="row">
+            
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">List Rekenings</h4>
+                  <div class="table-responsive">
+
+
+                  <a class="btn btn-sm btn-outline-success" href="/bo/form_rekening/">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> + Add Rekening
+                  </a>
+                  <br />
+                  <br />
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Action</th>
+                          <th> Nama Bank </th>
+                          <th> Foto </th>
+                          <th> Nama Rekening </th>
+                          <th> Nomor Rekening </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for rekening in rekenings %}
+                        <tr>
+                          <td>{{ rekening.no }}</td>
+                          <td> 
+                            <a class="btn btn-sm btn-outline-primary" href="/bo/edit_rekening/{{ rekening.id }}">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger" onclick="sendData({{ rekening.id }})" data-toggle="modal" data-target="#exampleModalCenter">
+                              <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                          </td>
+                          <td>
+                            {{ rekening.rekening_bank }}
+                          <td>
+                            <img src="/media/{{ rekening.rekening_gambar }}"></td>
+                          </td>
+                          <td>{{ rekening.rekening_nama }}</td>
+                          <td>{{ rekening.rekening_nomor }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% if not rekenings %}
+                          <tr>
+                            <td colspan="5" class="cs-text-center cs-empty-table"> There is no rekening yet. Please add a rekening ! </td>
+                          </tr>
+                        {% endif %}
+                        
+                      </tbody>
+                    </table>
+                    <br />
+                    <nav aria-label="Page navigation example" style="display:none">
+                      <ul class="pagination justify-content-end">
+                        {% if rekenings.has_previous %}
+                        <li class="page-item">
+                          <a class="page-link" href="?page=1" tabindex="-1">First</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="?page={{ rekenings.previous_page_number }}" tabindex="-1">Previous</a>
+                        </li>
+                        {% endif %}
+
+                        <span class="current">
+                          Page {{ rekenings.number }} of {{ rekenings.paginator.num_pages }}
+                        </span>
+
+                        {% if rekenings.has_next %}
+                        <li class="page-item">
+                          <a class="page-link" href="?page={{ rekenings.next_page_number }}">Next</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="?page={{ rekenings.num_pages }}">Last</a>
+                        </li>
+                        {% endif %}
+                        
+                      </ul>
+                    </nav>
+
+                    <div class="pagination">
+                        <span class="step-links">
+                            {% if rekenings.has_previous %}
+                                <a href="?page=1">&laquo; first</a>
+                                <a href="?page={{ rekenings.previous_page_number }}">previous</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Page {{ rekenings.number }} of {{ rekenings.paginator.num_pages }}
+                            </span>
+
+                            {% if rekenings.has_next %}
+                                <a href="?page={{ rekenings.next_page_number }}">next</a>
+                                <a href="?page={{ rekenings.paginator.num_pages }}">last &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          
+        </div>
+        <!-- content-wrapper ends -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure want to Delete this rekening ?</p>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn btn-primary" data-dismiss="modal">Cancel</a>
+                  <a class="btn btn-danger" id="btn-delete" href="">Delete</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+  <script type="text/javascript">
+    var s = $("#status").val();
+    if (s=='success'){
+        $('#myModal').modal('show');
+    }
+
+    function sendData(id){
+        console.log(id);
+        $("#btn-delete").attr("href", "/bo/delete_rekening/"+id);
+    }
+  </script>
+
+{% endblock %}
+
+

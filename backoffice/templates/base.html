@@ -1,0 +1,280 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Bacoffice Something</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'bo/vendors/iconfonts/mdi/css/materialdesignicons.min.css' %} ">
+  <link rel="stylesheet" href="{% static 'bo/vendors/css/vendor.bundle.base.css' %} ">
+  <link rel="stylesheet" href="{% static 'bo/vendors/css/vendor.bundle.addons.css' %} ">
+  <link rel="stylesheet" href="{% static 'bo/vendors/iconfonts/font-awesome/css/font-awesome.css' %} ">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'bo/css/style.css' %} ">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'bo/images/favicon.png' %} " />
+
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'bo/vendors/froala/css/froala_editor.css' %}">
+  <link rel="stylesheet" href="{% static 'bo/vendors/froala/css/froala_style.cs' %}s">
+  <link rel="stylesheet" href="{% static 'bo/vendors/froala/css/plugins/code_view.css' %}">
+  <link rel="stylesheet" href="{% static 'bo/vendors/froala/css/plugins/image_manager.css' %}">
+  <link rel="stylesheet" href="{% static 'bo/vendors/froala/css/plugins/image.css' %}">
+  <link rel="stylesheet" href="{% static 'bo/vendors/froala/css/plugins/table.css' %}">
+  <link rel="stylesheet" href="{% static 'bo/vendors/froala/css/plugins/video.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+        <a class="navbar-brand brand-logo" href="index.html">
+          <img src="{% static 'bo/images/logo.svg' %} " alt="logo" />
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="index.html">
+          <img src="{% static 'bo/images/logo-mini.svg' %} " alt="logo" />
+        </a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center">
+       
+        <ul class="navbar-nav navbar-nav-right">
+         
+          <li class="nav-item dropdown d-none d-xl-inline-block">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <span class="profile-text">Hello, Richard V.Welsh !</span>
+              <img class="img-xs rounded-circle" src="{% static 'bo/images/faces/face1.jpg' %} " alt="Profile image">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              
+              <a class="dropdown-item">
+                Account
+              </a>
+              <a class="dropdown-item">
+                Sign Out
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <div class="nav-link">
+              <div class="user-wrapper" style="margin-bottom:0px">
+                <div class="profile-image">
+                  <img src="{% static 'bo/images/faces/face1.jpg' %} " alt="profile image">
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">Richard V.Welsh</p>
+                  <div>
+                    <small class="designation text-muted">Manager</small>
+                    <span class="status-indicator online"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item" style="display:none;">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-content-copy"></i>
+              <span class="menu-title">Basic UI Elements</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                </li>
+              </ul>
+            </div>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/bo/user/">
+              <i class="menu-icon  fa fa-users"></i>
+              <span class="menu-title">User</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/bo/organisasi/">
+              <i class="menu-icon fa fa-bookmark"></i>
+              <span class="menu-title">Organisasi</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/bo/gallery/">
+              <i class="menu-icon fa fa-picture-o"></i>
+              <span class="menu-title">Gallery / Foto</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/bo/kegiatan">
+              <i class="menu-icon fa fa-child"></i>
+              <span class="menu-title">Kegiatan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/bo/berita">
+              <i class="menu-icon fa fa-bullhorn"></i>
+              <span class="menu-title">Berita</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/bo/rekening/">
+              <i class="menu-icon mdi mdi-bank"></i>
+              <span class="menu-title">Rekening</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      {% block content  %}
+
+      
+
+      {% endblock  %} 
+              <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i>
+            </span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+      
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'bo/vendors/js/vendor.bundle.base.js' %} "></script>
+  <script src="{% static 'bo/vendors/js/vendor.bundle.addons.js' %} "></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'bo/js/off-canvas.js' %} "></script>
+  <script src="{% static 'bo/js/misc.js' %} "></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'bo/js/dashboard.js' %} "></script>
+  <!-- End custom js for this page-->
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/froala_editor.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/align.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/code_beautifier.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/code_view.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/draggable.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/image.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/image_manager.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/link.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/lists.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/paragraph_format.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/paragraph_style.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/table.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/video.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/url.min.js' %} "></script>
+  <script type="text/javascript" src="{% static 'bo/vendors/froala/js/plugins/entities.min.js' %} "></script>
+
+  <script>
+      $(function(){
+        $('#edit')
+          .on('froalaEditor.initialized', function (e, editor) {
+            $('#edit').parents('form').on('submit', function () {
+              // console.log($('#edit').val());
+              // return false;
+            })
+          })
+          .froalaEditor({
+            imageUploadParam: 'berita_isi',
+            // Set max image size to 5MB.
+            imageMaxSize: 5 * 1024 * 1024,
+     
+            // Allow to upload PNG and JPG.
+            imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+
+            // Additional upload params.
+            imageUploadParams: {id: 'my_editor'},
+
+            //imageUploadURL: '{% static "bo/vendors/" %}',
+
+
+          })
+          .on('froalaEditor.image.beforeUpload', function (e, editor, images) {
+            // Return false if you want to stop the image upload.
+          })
+          on('froalaEditor.image.uploaded', function (e, editor, response) {
+            // Image was uploaded to the server.
+          })
+          .on('froalaEditor.image.inserted', function (e, editor, $img, response) {
+            // Image was inserted in the editor.
+          })
+          .on('froalaEditor.image.replaced', function (e, editor, $img, response) {
+            // Image was replaced in the editor.
+          })
+          .on('froalaEditor.image.error', function (e, editor, error, response) {
+          // Bad link.
+          if (error.code == 1) { alert('error') }
+   
+          // No link in upload response.
+          else if (error.code == 2) { alert('error') }
+   
+          // Error during image upload.
+          else if (error.code == 3) { alert('error') }
+   
+          // Parsing response failed.
+          else if (error.code == 4) { alert('error') }
+   
+          // Image too text-large.
+          else if (error.code == 5) { alert('error') }
+   
+          // Invalid image type.
+          else if (error.code == 6) { alert('error') }
+   
+          // Image can be uploaded only to same domain in IE 8 and IE 9.
+          else if (error.code == 7) { alert('error') }
+   
+          // Response contains the original server response to the request if available.
+        });
+
+      });
+  </script>
+
+</body>
+
+</html>
